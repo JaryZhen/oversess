@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/overseabase/overseabase.iml" filepath="$PROJECT_DIR$/overseabase/overseabase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/overseaoffer/overseaoffer.iml" filepath="$PROJECT_DIR$/overseaoffer/overseaoffer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oversess.iml" filepath="$PROJECT_DIR$/oversess.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oversetoDB/oversetoDB.iml" filepath="$PROJECT_DIR$/oversetoDB/oversetoDB.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<bean id="dsAds" class="org.logicalcobwebs.proxool.ProxoolDataSource">
+		<property name="driver">
+			<value>${mysql.driver}</value>
+		</property>
+		<property name="driverUrl">
+			<value>${mysql.adsurl}</value>
+		</property>
+		<property name="user" value="${mysql.username}" />
+		<property name="password" value="${mysql.password}" />
+		<property name="alias" value="Ads" />
+		<property name="maximumActiveTime" value="${mysql.maxActiveTime}" />
+		<property name="maximumConnectionCount" value="${mysql.maxConnCount}" />
+		<property name="minimumConnectionCount" value="${mysql.minConnCount}" />
+		<property name="simultaneousBuildThrottle" value="${mysql.buildThrottle}" />
+		<property name="houseKeepingTestSql" value="${mysql.keepTestSql}" />
+	</bean>
+
+    <bean id="dcountryDao" class="com.oversea.ads.dao.OverseaCountryDao">
+        <property name="dataSource">
+            <ref local="dsAds" />
+        </property>
+    </bean>
+    <bean id="dapkDao" class="com.oversea.ads.dao.OverseaApkDao">
+        <property name="dataSource">
+            <ref local="dsAds" />
+        </property>
+    </bean>
+    <bean id="dadDao" class="com.oversea.ads.dao.OverseaAdDao">
+        <property name="dataSource">
+            <ref local="dsAds" />
+        </property>
+    </bean>
+    <bean id="dproviderDao" class="com.oversea.ads.dao.OverseaProviderDao">
+        <property name="dataSource">
+            <ref local="dsAds" />
+        </property>
+    </bean>
+    <bean id="dclassapkDao" class="com.oversea.ads.dao.OverseaClassApkDao">
+        <property name="dataSource">
+            <ref local="dsAds" />
+        </property>
+    </bean>    
+    
+    
+   <bean id="dofferblacklistDao" class="com.oversea.ads.dao.OverseaOfferBlackListDao">
+        <property name="dataSource">
+            <ref local="dsAds" />
+        </property>
+    </bean>   
+    
+  	<!-- postback DB -->  
+    <bean id="dpostbackDao" class="com.oversea.ads.dao.OverseaPostBackCountDao">
+        <property name="dataSource">
+            <ref local="dsAds" />
+        </property>
+    </bean>
+    
+    <bean id="dtemDao" class="com.oversea.ads.dao.OverseaAd_TemDao">
+        <property name="dataSource">
+            <ref local="dsAds" />
+        </property>
+    </bean>
+    
+    <bean id="bSpringHelper" class="com.oversea.util.OverseaSpringHelper"></bean>
+</beans>
+
+
+
+
+
+
